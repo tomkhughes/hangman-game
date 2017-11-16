@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+/*
+header { 
+	border: 2px solid black;
+	height: 150px;
+	width: 80%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 33px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 55px;
+
+
+}
+*/
+
+.img-fluid {
+	height: 200px;
+	width: 85%;
+	border-radius: 8px;
+	margin: 0 auto;
+
+}
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	line-height: 170%; 
+	text-align: center;
+	margin: 0 auto;
+	width: 80%
+}
