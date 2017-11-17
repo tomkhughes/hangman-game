@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet"  href="assets/css/reset.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet"  href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link rel="stylesheet"  href="assets/css/reset.css">
+  <link rel="stylesheet"  href="assets/css/style.css">
   <title>Hangman Game</title>
 </head>
 
 <body>
-  <div class="container">
-       <h1 ><img class="img-fluid" src="assets/images/banner.jpg" alt="Resoponsive image"></h1>
-      <p>Beatles Hangman</p>
+<div class= "main-container">
+  <div class="header-container">
+       <img class="img-fluid" src="assets/images/banner1.jpg" alt="Resoponsive image">
+      <h1>Beatles Hangman Game!</h1>
   </div>
 
   <div class="panel panel-default">
@@ -32,7 +34,7 @@
   
   <div class="panel panel-default">
     <div class="panel-body">
-      Guesses Left: <span id="guesses-left"></span>
+      Guesses Left: <span id="guesses-left">7</span>
     </div>
   </div>
   
@@ -44,10 +46,11 @@
   
   <div class="panel panel-default">
     <div class="panel-body">
-      Loss Counter:  <span id="lossCounter">0</span>
+      Loss Counter:  <span id="loss-counter">0</span>
     </div>
   </div>
   
+</div>
 </div>
 <script type="text/javascript" src="assets/javascript/hangman.js"></script>
 </body>

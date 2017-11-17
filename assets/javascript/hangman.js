@@ -4,12 +4,14 @@ var wordBank = ['paul', 'george', 'lennon', 'ringo']
 var wins = 0;
 var loss = 0;
 var wrongLetter = [];
-var guessesLeft = 10;
+var guessesLeft = 7;
 var underscores = [];
 var userGuesses = [];
 var randWord;
 var winCounter = 0;
 var lossCounter= 0;
+var rightGuess = 0;
+var audio = new Audio('assets/images/come-together.mp3');
 
 
 // FUNCTIONS
@@ -23,31 +25,34 @@ function startGame(){
     // console.log(i); to see how many times its looping through
       underscores.push('_');
   }
-    //create underscores with no , add .join(' ')
+    //create underscores with no ,,,,, add .join(' ')
   document.getElementById('word-blanks').textContent = underscores.join(' ');
-
-  //Reset 
-  
 
   //HTML
   document.getElementById('guesses-left').textContent = guessesLeft;
   document.getElementById('wrong-guesses').textContent = wrongLetter;
+  audio.play();
 
 }
 
 function winLose() {
-  if(winCounter === randWord.length) {
+  if(rightGuess === randWord.length) {
     alert('winner');
     winCounter++;
     document.getElementById('win-counter').innerHTML = winCounter;
+    reset();
+    console.log('new word is ' + randWord);
+    
 
-     
 
   }
   if(guessesLeft === 0) {
     alert('loser');
     lossCounter++;
-    document.getElementById('lossCounter').innerHTML = lossCounter;
+    document.getElementById('loss-counter').innerHTML = lossCounter;
+    reset();
+    console.log('new word is ' + randWord);
+    
 
   }
 
@@ -66,10 +71,10 @@ document.onkeyup = function(event) {
    //say yes for 2 which is n. bingo
    //underscores has the same index for each randWord letter.  
     for(var i = 0; i < randWord.length; i++) {
-      //keeps track of right guesses and adds populates the underscores with right user Guesses 
+      //keeps track of right guesses and adds the underscores with right user Guesses 
       if(randWord[i] === userGuesses) {
         underscores[i] = userGuesses;
-        winCounter++; 
+        rightGuess++; 
         document.getElementById('word-blanks').innerHTML = underscores.join(' ');
         console.log(underscores);
         winLose();
@@ -88,13 +93,32 @@ document.onkeyup = function(event) {
   
 }
 
+function reset() {
+  randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+  wrongLetter = [];
+  guessesLeft = 7;
+  underscores = [];
+
+  for(var i = 0; i< randWord.length; i++)
+  {
+    underscores.push('_');
+    
+  }
+  document.getElementById('word-blanks').innerHTML = underscores; 
+  document.getElementById('word-blanks').innerHTML = underscores.join(' ');
+  
+}
+
 // MAIN PROCESS
 // ==============================================================================
 
 startGame();
+
+//****NOTES FOR SELF REFERENCE****
 
 //indexOf getting the index of randWord and we are seeing if 
 //any of the user guesses exist within rand word if it does 
 //we will get a value greater than negative 1
 // if the letter that a user presses actually existes in the word we 
 //will get a number greater than -1. if not then you get -1.
+//.join - joins array elemens into string
