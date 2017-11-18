@@ -68,7 +68,7 @@ document.onkeyup = function(event) {
    //if user guesses n, it will loop through and first say no 
    //for index 0 which is r   
    //say no for index 1 which is i
-   //say yes for 2 which is n. bingo
+   //say yes for 2 which is n. bingo.
    //underscores has the same index for each randWord letter.  
     for(var i = 0; i < randWord.length; i++) {
       //keeps track of right guesses and adds the underscores with right user Guesses 
@@ -98,7 +98,10 @@ function reset() {
   wrongLetter = [];
   guessesLeft = 7;
   underscores = [];
-
+//reset and win counter not fully functional.  figured out how to keep track
+// of right guesses but not full word correct answers. game is not reseting 
+//after the win alert. Tried to make a new 'empty' var rightGuess and push 
+//the right guesses into in and count wins, but was unsucsessful.
   for(var i = 0; i< randWord.length; i++)
   {
     underscores.push('_');
